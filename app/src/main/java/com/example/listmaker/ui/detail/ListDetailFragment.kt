@@ -48,12 +48,12 @@ class ListDetailFragment : Fragment() {
                 requireActivity().intent.getParcelableExtra(MainActivity.INTENT_LIST_KEY)!!
             viewModel.list = list
         }
-        val recyclerAdapter = ListItemsAdapter(viewModel.list)
-        binding.recyclerviewDetail.adapter = recyclerAdapter
+        val adapter = ListItemsAdapter(viewModel.list)
+        binding.recyclerviewDetail.adapter = adapter
         binding.recyclerviewDetail.layoutManager = LinearLayoutManager(requireContext())
 
         viewModel.onTaskAdded = {
-            recyclerAdapter.notifyDataSetChanged()
+            adapter.notifyDataSetChanged()
         }
     }
 
